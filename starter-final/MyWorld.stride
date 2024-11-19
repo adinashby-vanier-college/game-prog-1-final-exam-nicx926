@@ -20,20 +20,19 @@
     </constructors>
     <methods>
         <method access="private" type="void" type-java="void" name="prepare" enable="true">
-            <javadoc xml:space="preserve">Prepare the world for the start of the program.
-That is: create the initial objects and add them to the world.</javadoc>
+            <javadoc xml:space="preserve">Prepare the world for the start of the program. That is: create the initial objects and add them to the world.</javadoc>
             <params/>
             <throws/>
             <body>
-                <variable type="Canon" type-java="Canon" name="canon" value="new Canon()" value-java=" new Canon()" enable="true"/>
+                <variable type="Canon" type-java="Canon" name="canon" value="new Canon(5,3)" value-java=" new Canon(5, 3)" enable="true"/>
                 <call expression="addObject(canon,95,92)" expression-java="addObject(canon, 95, 92)" enable="true"/>
-                <variable type="Canon" type-java="Canon" name="canon2" value="new Canon()" value-java=" new Canon()" enable="true"/>
+                <variable type="Canon" type-java="Canon" name="canon2" value="new Canon(3,5)" value-java=" new Canon(3, 5)" enable="true"/>
                 <call expression="addObject(canon2,321,277)" expression-java="addObject(canon2, 321, 277)" enable="true"/>
-                <variable type="Canon" type-java="Canon" name="canon3" value="new Canon()" value-java=" new Canon()" enable="true"/>
+                <variable type="Canon" type-java="Canon" name="canon3" value="new Canon(4,5)" value-java=" new Canon(4, 5)" enable="true"/>
                 <call expression="addObject(canon3,692,107)" expression-java="addObject(canon3, 692, 107)" enable="true"/>
-                <variable type="Canon" type-java="Canon" name="canon4" value="new Canon()" value-java=" new Canon()" enable="true"/>
+                <variable type="Canon" type-java="Canon" name="canon4" value="new Canon(5,6)" value-java=" new Canon(5, 6)" enable="true"/>
                 <call expression="addObject(canon4,708,478)" expression-java="addObject(canon4, 708, 478)" enable="true"/>
-                <variable type="Canon" type-java="Canon" name="canon5" value="new Canon()" value-java=" new Canon()" enable="true"/>
+                <variable type="Canon" type-java="Canon" name="canon5" value="new Canon(5,7)" value-java=" new Canon(5, 7)" enable="true"/>
                 <call expression="addObject(canon5,497,52)" expression-java="addObject(canon5, 497, 52)" enable="true"/>
                 <call expression="canon3.setLocation(730,171)" expression-java="canon3.setLocation(730, 171)" enable="true"/>
                 <call expression="canon2.setLocation(289,316)" expression-java="canon2.setLocation(289, 316)" enable="true"/>
