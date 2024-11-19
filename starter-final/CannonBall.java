@@ -14,5 +14,44 @@ public class CannonBall extends Actor
      */
     public void act()
     {
+        eat();
+        if (isGameOver()) {
+            transitionToLoseWorld();
+        }
+    }
+
+    /**
+     * 
+     */
+    public void eat()
+    {
+        Actor ladybug = getOneIntersectingObject(Ladybug.class);
+        if (ladybug != null) {
+            World world = getWorld();
+            world.removeObject(ladybug);
+        }
+    }
+
+    /**
+     * 
+     */
+    public boolean isGameOver()
+    {
+        World world = getWorld();
+        if (world.getObjects(Ladybug.class).isEmpty()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    /**
+     * 
+     */
+    public void transitionToLoseWorld()
+    {
+        World LoseWorld =  new LoseWorld();
+        Greenfoot.setWorld(LoseWorld);
     }
 }

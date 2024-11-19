@@ -1,19 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class name="Canon" extends="Actor" enable="true" strideversion="1">
+<class name="Canon" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
     <javadoc xml:space="preserve"/>
     <imports>
         <import target="java.util.*" enable="true"/>
         <import target="greenfoot.*" enable="true"/>
     </imports>
     <implements/>
-    <fields/>
-    <constructors/>
+    <fields>
+        <variable access="private" type="int" type-java="int" name="fireRate" enable="true"/>
+        <variable access="private" type="int" type-java="int" name="counter" enable="true"/>
+        <variable access="private" type="int" type-java="int" name="speed" enable="true"/>
+    </fields>
+    <constructors>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params>
+                <params type="int" type-java="int" name="fireRate"/>
+                <params type="int" type-java="int" name="speed"/>
+            </params>
+            <throws/>
+            <body>
+                <assign dest="this.speed" dest-java="this.speed" src="speed" src-java="speed" enable="true"/>
+                <assign dest="this.fireRate" dest-java="this.fireRate" src="fireRate" src-java="fireRate" enable="true"/>
+                <assign dest="this.counter" dest-java="this.counter" src="0" src-java="0" enable="true"/>
+            </body>
+        </constructor>
+    </constructors>
     <methods>
-        <method access="public" type="void" name="act" enable="true">
+        <method access="public" type="void" type-java="void" name="act" enable="true">
             <javadoc xml:space="preserve">Act - do whatever the Canon wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.</javadoc>
             <params/>
             <throws/>
-            <body/>
+            <body>
+                <if condition="counter&gt;=fireRate" condition-java="counter &gt;= fireRate" enable="true">
+                    <ifStatements>
+                        <call expression="fireCannonball()" expression-java="fireCannonball()" enable="true"/>
+                        <assign dest="counter" dest-java="counter" src="0" src-java="0" enable="true"/>
+                    </ifStatements>
+                </if>
+                <assign dest="counter" dest-java="counter" src="counter+1" src-java="counter + 1" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="fireCannonball" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <variable type="CannonBall" type-java="CannonBall" name="ball" value="new CannonBall()" value-java=" new CannonBall()" enable="true"/>
+                <call expression="getWorld().addObject(ball,getX(),getY())" expression-java="getWorld().addObject(ball, getX(), getY())" enable="true"/>
+                <call expression="ball.setRotation(getRotation())" expression-java="ball.setRotation(getRotation())" enable="true"/>
+            </body>
         </method>
     </methods>
 </class>
